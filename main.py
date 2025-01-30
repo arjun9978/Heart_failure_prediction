@@ -97,29 +97,3 @@ print("\nPrediction Results:")
 print(f"Death Event Prediction: {'Yes' if predicted_output[0] == 1 else 'No'}")
 print(f"Probability: {max(prediction_prob):.2%}")
 
-# Comment out or remove these MongoDB sections:
-# try:
-#     client = MongoClient("mongodb+srv://...")
-#     db = client['heart_failure']
-#     collection = db['predictions']
-#     
-#     # Save results to MongoDB
-#     for i in range(len(test_x)):
-#         prediction_data = {
-#             "input": test_x.iloc[i].to_dict(),
-#             "predicted": int(predictions[i]),
-#             "actual": int(test_y.iloc[i])
-#         }
-#         collection.insert_one(prediction_data)
-# except Exception as e:
-#     print(f"MongoDB connection error: {e}")
-
-# try:
-#     user_prediction = {
-#         "input": user_input,
-#         "predicted_output": int(predicted_output[0]),
-#         "prediction_probability": float(max(prediction_prob))
-#     }
-#     collection.insert_one(user_prediction)
-# except Exception as e:
-#     print(f"Error saving to MongoDB: {e}")
